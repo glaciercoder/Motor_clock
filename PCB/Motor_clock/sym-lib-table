@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name TPS561208DDCR)(type Legacy)(uri ${KIPRJMOD}/TPS561208DDCR/TPS561208DDCR.lib)(options "")(descr ""))
+  (lib (name TMC_driver)(type Legacy)(uri /Users/glacier/Desktop/pcb_design/Motor_clock/Motor_clock/PCB/Motor_clock/TMC2208_driver/TMC_driver.lib)(options "")(descr ""))
+)
