@@ -1,4 +1,4 @@
-19093092925772506
+19097975319186146
 Battery
 BatteryHolder_Bulgin_BX0036_1xC
 Bulgin Battery Holder, BX0036, Battery Type C (https://www.bulgin.com/products/pub/media/bulgin/data/Battery_holders.pdf)
@@ -2140,6 +2140,13 @@ SW PUSH SMALL http://www.ckswitches.com/media/1457/ksa_ksl.pdf
 SW PUSH SMALL Tactile C&K
 0
 4
+2
+Buzzer
+buzzer
+
+
+0
+2
 2
 Buzzer_Beeper
 Buzzer_12x9.5RM7.6
@@ -82305,6 +82312,13 @@ transformer flyback
 0
 10
 10
+USB
+MicroXNJ
+
+
+0
+11
+6
 Valve
 Valve_ECC-83-1
 Valve ECC-83-1 round pins
@@ -83075,3 +83089,10 @@ varistor SIOV
 0
 2
 2
+picture
+logo
+
+
+0
+0
+0

@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 2 4
+Sheet 2 5
 Title ""
 Date ""
 Rev ""
@@ -467,4 +467,21 @@ Connection ~ 4800 4275
 Connection ~ 4800 4375
 Wire Wire Line
 	4800 4375 4800 4275
+Text GLabel 7225 5050 2    50   Input ~ 0
+PDN
+$Comp
+L power:GND #PWR0147
+U 1 1 61105CC3
+P 6800 5175
+F 0 "#PWR0147" H 6800 4925 50  0001 C CNN
+F 1 "GND" H 6805 5002 50  0000 C CNN
+F 2 "" H 6800 5175 50  0001 C CNN
+F 3 "" H 6800 5175 50  0001 C CNN
+	1    6800 5175
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6800 5175 6800 5050
+Wire Wire Line
+	6800 5050 7225 5050
 $EndSCHEMATC

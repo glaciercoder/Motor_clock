@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 3 4
+Sheet 3 5
 Title ""
 Date ""
 Rev ""
@@ -75,7 +75,7 @@ AR Path="/60EF91A7" Ref="L?"  Part="1"
 AR Path="/60EF4BAF/60EF91A7" Ref="L1"  Part="1" 
 F 0 "L1" V 6685 3825 50  0000 C CNN
 F 1 "4.7uH" V 6594 3825 50  0000 C CNN
-F 2 "Inductor_SMD:L_0603_1608Metric" H 6500 3825 50  0001 C CNN
+F 2 "Inductor_SMD:L_Coilcraft_XAL5030" H 6500 3825 50  0001 C CNN
 F 3 "~" H 6500 3825 50  0001 C CNN
 	1    6500 3825
 	0    -1   -1   0   

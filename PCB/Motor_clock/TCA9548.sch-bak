@@ -1,0 +1,328 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 5 5
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Interface_Expansion:TCA9548APWR U10
+U 1 1 60FDAFA5
+P 5575 3725
+F 0 "U10" H 6025 2650 50  0000 C CNN
+F 1 "TCA9548APWR" H 6025 2750 50  0000 C CNN
+F 2 "Package_SO:TSSOP-24_4.4x7.8mm_P0.65mm" H 5575 2725 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/tca9548a.pdf" H 5625 3975 50  0001 C CNN
+	1    5575 3725
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5100 4025 5175 4025
+Wire Wire Line
+	5100 4125 5175 4125
+Wire Wire Line
+	5100 4225 5175 4225
+Wire Wire Line
+	5100 4025 5100 4125
+Wire Wire Line
+	5100 4800 5350 4800
+Wire Wire Line
+	5575 4800 5575 4725
+Connection ~ 5100 4125
+Wire Wire Line
+	5100 4125 5100 4225
+Connection ~ 5100 4225
+Wire Wire Line
+	5100 4225 5100 4800
+$Comp
+L power:GND #PWR01
+U 1 1 60FDCC54
+P 5350 4925
+F 0 "#PWR01" H 5350 4675 50  0001 C CNN
+F 1 "GND" H 5355 4752 50  0000 C CNN
+F 2 "" H 5350 4925 50  0001 C CNN
+F 3 "" H 5350 4925 50  0001 C CNN
+	1    5350 4925
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5350 4925 5350 4800
+Connection ~ 5350 4800
+Wire Wire Line
+	5350 4800 5575 4800
+Text GLabel 5175 3125 0    50   Input ~ 0
+SDA
+Text GLabel 5175 3025 0    50   Input ~ 0
+SCL
+Text GLabel 5175 3525 0    50   Input ~ 0
+RESET
+$Comp
+L power:+5V #PWR02
+U 1 1 60FDFDA4
+P 5575 2825
+F 0 "#PWR02" H 5575 2675 50  0001 C CNN
+F 1 "+5V" H 5590 2998 50  0000 C CNN
+F 2 "" H 5575 2825 50  0001 C CNN
+F 3 "" H 5575 2825 50  0001 C CNN
+	1    5575 2825
+	1    0    0    -1  
+$EndComp
+NoConn ~ 5975 4525
+NoConn ~ 5975 4425
+NoConn ~ 5975 4325
+NoConn ~ 5975 4225
+Text GLabel 5975 3025 2    50   Input ~ 0
+SC0
+Text GLabel 5975 3125 2    50   Input ~ 0
+SD0
+Text GLabel 5975 3225 2    50   Input ~ 0
+SC1
+Text GLabel 5975 3325 2    50   Input ~ 0
+SD1
+Text GLabel 5975 3425 2    50   Input ~ 0
+SC2
+Text GLabel 5975 3525 2    50   Input ~ 0
+SD2
+Text GLabel 5975 3625 2    50   Input ~ 0
+SC3
+Text GLabel 5975 3725 2    50   Input ~ 0
+SD3
+Text GLabel 5975 3825 2    50   Input ~ 0
+SC4
+Text GLabel 5975 3925 2    50   Input ~ 0
+SD4
+Text GLabel 5975 4025 2    50   Input ~ 0
+SC5
+Text GLabel 5975 4125 2    50   Input ~ 0
+SD5
+$Comp
+L Connector:Conn_01x04_Female J14
+U 1 1 61001481
+P 7825 2850
+F 0 "J14" H 7853 2826 50  0000 L CNN
+F 1 "Enc_S_2" H 7853 2735 50  0000 L CNN
+F 2 "Connector_JST:JST_PH_B4B-PH-K_1x04_P2.00mm_Vertical" H 7825 2850 50  0001 C CNN
+F 3 "~" H 7825 2850 50  0001 C CNN
+	1    7825 2850
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR0131
+U 1 1 610017CE
+P 7625 2750
+F 0 "#PWR0131" H 7625 2600 50  0001 C CNN
+F 1 "+5V" H 7640 2923 50  0000 C CNN
+F 2 "" H 7625 2750 50  0001 C CNN
+F 3 "" H 7625 2750 50  0001 C CNN
+	1    7625 2750
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0136
+U 1 1 61002438
+P 7625 3050
+F 0 "#PWR0136" H 7625 2800 50  0001 C CNN
+F 1 "GND" H 7630 2877 50  0000 C CNN
+F 2 "" H 7625 3050 50  0001 C CNN
+F 3 "" H 7625 3050 50  0001 C CNN
+	1    7625 3050
+	1    0    0    -1  
+$EndComp
+Text GLabel 7625 2850 0    50   Input ~ 0
+SC0
+$Comp
+L Connector:Conn_01x04_Female J15
+U 1 1 6100711C
+P 8900 2850
+F 0 "J15" H 8928 2826 50  0000 L CNN
+F 1 "Enc_S_1" H 8928 2735 50  0000 L CNN
+F 2 "Connector_JST:JST_PH_B4B-PH-K_1x04_P2.00mm_Vertical" H 8900 2850 50  0001 C CNN
+F 3 "~" H 8900 2850 50  0001 C CNN
+	1    8900 2850
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR0137
+U 1 1 61007122
+P 8700 2750
+F 0 "#PWR0137" H 8700 2600 50  0001 C CNN
+F 1 "+5V" H 8715 2923 50  0000 C CNN
+F 2 "" H 8700 2750 50  0001 C CNN
+F 3 "" H 8700 2750 50  0001 C CNN
+	1    8700 2750
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0138
+U 1 1 61007128
+P 8700 3050
+F 0 "#PWR0138" H 8700 2800 50  0001 C CNN
+F 1 "GND" H 8705 2877 50  0000 C CNN
+F 2 "" H 8700 3050 50  0001 C CNN
+F 3 "" H 8700 3050 50  0001 C CNN
+	1    8700 3050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x04_Female J12
+U 1 1 6100A70F
+P 7800 3675
+F 0 "J12" H 7828 3651 50  0000 L CNN
+F 1 "Enc_M_2" H 7828 3560 50  0000 L CNN
+F 2 "Connector_JST:JST_PH_B4B-PH-K_1x04_P2.00mm_Vertical" H 7800 3675 50  0001 C CNN
+F 3 "~" H 7800 3675 50  0001 C CNN
+	1    7800 3675
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR0139
+U 1 1 6100A715
+P 7600 3575
+F 0 "#PWR0139" H 7600 3425 50  0001 C CNN
+F 1 "+5V" H 7615 3748 50  0000 C CNN
+F 2 "" H 7600 3575 50  0001 C CNN
+F 3 "" H 7600 3575 50  0001 C CNN
+	1    7600 3575
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0140
+U 1 1 6100A71B
+P 7600 3875
+F 0 "#PWR0140" H 7600 3625 50  0001 C CNN
+F 1 "GND" H 7605 3702 50  0000 C CNN
+F 2 "" H 7600 3875 50  0001 C CNN
+F 3 "" H 7600 3875 50  0001 C CNN
+	1    7600 3875
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x04_Female J16
+U 1 1 6100B903
+P 8950 3675
+F 0 "J16" H 8978 3651 50  0000 L CNN
+F 1 "Enc_M1" H 8978 3560 50  0000 L CNN
+F 2 "Connector_JST:JST_PH_B4B-PH-K_1x04_P2.00mm_Vertical" H 8950 3675 50  0001 C CNN
+F 3 "~" H 8950 3675 50  0001 C CNN
+	1    8950 3675
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR0141
+U 1 1 6100B909
+P 8750 3575
+F 0 "#PWR0141" H 8750 3425 50  0001 C CNN
+F 1 "+5V" H 8765 3748 50  0000 C CNN
+F 2 "" H 8750 3575 50  0001 C CNN
+F 3 "" H 8750 3575 50  0001 C CNN
+	1    8750 3575
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0142
+U 1 1 6100B90F
+P 8750 3875
+F 0 "#PWR0142" H 8750 3625 50  0001 C CNN
+F 1 "GND" H 8755 3702 50  0000 C CNN
+F 2 "" H 8750 3875 50  0001 C CNN
+F 3 "" H 8750 3875 50  0001 C CNN
+	1    8750 3875
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x04_Female J13
+U 1 1 6100CA5A
+P 7800 4550
+F 0 "J13" H 7828 4526 50  0000 L CNN
+F 1 "Enc_H_2" H 7828 4435 50  0000 L CNN
+F 2 "Connector_JST:JST_PH_B4B-PH-K_1x04_P2.00mm_Vertical" H 7800 4550 50  0001 C CNN
+F 3 "~" H 7800 4550 50  0001 C CNN
+	1    7800 4550
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR0143
+U 1 1 6100CA60
+P 7600 4450
+F 0 "#PWR0143" H 7600 4300 50  0001 C CNN
+F 1 "+5V" H 7615 4623 50  0000 C CNN
+F 2 "" H 7600 4450 50  0001 C CNN
+F 3 "" H 7600 4450 50  0001 C CNN
+	1    7600 4450
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0144
+U 1 1 6100CA66
+P 7600 4750
+F 0 "#PWR0144" H 7600 4500 50  0001 C CNN
+F 1 "GND" H 7605 4577 50  0000 C CNN
+F 2 "" H 7600 4750 50  0001 C CNN
+F 3 "" H 7600 4750 50  0001 C CNN
+	1    7600 4750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x04_Female J17
+U 1 1 6100D4C8
+P 8975 4550
+F 0 "J17" H 9003 4526 50  0000 L CNN
+F 1 "Enc_H_1" H 9003 4435 50  0000 L CNN
+F 2 "Connector_JST:JST_PH_B4B-PH-K_1x04_P2.00mm_Vertical" H 8975 4550 50  0001 C CNN
+F 3 "~" H 8975 4550 50  0001 C CNN
+	1    8975 4550
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR0145
+U 1 1 6100D4CE
+P 8775 4450
+F 0 "#PWR0145" H 8775 4300 50  0001 C CNN
+F 1 "+5V" H 8790 4623 50  0000 C CNN
+F 2 "" H 8775 4450 50  0001 C CNN
+F 3 "" H 8775 4450 50  0001 C CNN
+	1    8775 4450
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0146
+U 1 1 6100D4D4
+P 8775 4750
+F 0 "#PWR0146" H 8775 4500 50  0001 C CNN
+F 1 "GND" H 8780 4577 50  0000 C CNN
+F 2 "" H 8775 4750 50  0001 C CNN
+F 3 "" H 8775 4750 50  0001 C CNN
+	1    8775 4750
+	1    0    0    -1  
+$EndComp
+Text GLabel 7625 2950 0    50   Input ~ 0
+SD0
+Text GLabel 8700 2850 0    50   Input ~ 0
+SC1
+Text GLabel 8700 2950 0    50   Input ~ 0
+SD1
+Text GLabel 7600 3675 0    50   Input ~ 0
+SC2
+Text GLabel 7600 3775 0    50   Input ~ 0
+SD2
+Text GLabel 8750 3675 0    50   Input ~ 0
+SC3
+Text GLabel 8750 3775 0    50   Input ~ 0
+SD3
+Text GLabel 7600 4550 0    50   Input ~ 0
+SC4
+Text GLabel 7600 4650 0    50   Input ~ 0
+SD4
+Text GLabel 8775 4550 0    50   Input ~ 0
+SC5
+Text GLabel 8775 4650 0    50   Input ~ 0
+SD5
+$EndSCHEMATC

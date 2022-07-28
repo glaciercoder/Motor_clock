@@ -1,0 +1,4 @@
+(fp_lib_table
+  (lib (name AS5600)(type KiCad)(uri /Users/glacier/Desktop/pcb_design/Motor_clock/Motor_clock/PCB/Encoder/AS5600)(options "")(descr ""))
+  (lib (name picture)(type KiCad)(uri /Users/glacier/Desktop/pcb_design/my_lib/picture)(options "")(descr ""))
+)
