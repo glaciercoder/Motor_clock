@@ -1,0 +1,7 @@
+### Module positions - created on 2022年07月28日 星期四 15时03分32秒 ###
+### Printed by Pcbnew version (6.0.6)
+## Unit = mm, Angle = deg.
+## Side : bottom
+# Ref     Val       Package                PosX       PosY       Rot  Side
+G***      LOGO      logo              -202.6920  -116.3320  180.0000  bottom
+## End
