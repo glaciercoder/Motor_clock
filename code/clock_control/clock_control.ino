@@ -9,7 +9,7 @@
 #include <TimerOne.h>
 #include <AS5600.h>
 #include <FastLED.h>
-DS3231 clock;
+DS3231 clock_for_motor;
 CRGB leds[NUM_LEDS];
 
 //Pin def
@@ -22,7 +22,7 @@ const int step_S_2 = 6;
 const int dirPin = 10;
 const int LED_DATA = 7;
 const int Buzzer = 8;
-AMS_5600 encoder[6];
+AS5600 encoder[6];
 
 //state machine
 bool State_H_1 = 0;
@@ -51,7 +51,7 @@ unsigned long  micros_h_1 = 0;
 
 
 //timer vars
-int time[3];
+int time_for_motor[3];
 int angle[6];//angle 0-5 for s2,21,m2,m1,h2,n1 respectively
 bool h12 = false;
 bool apm;
@@ -75,14 +75,14 @@ void setup() {
   while (Serial.available() > 0) {
     Serial.flush();
   }
-  Time_Init(time);
+  Time_Init(time_for_motor);
   Timer1.initialize(interval_s); //Initialize timer with 1 second period
   Timer1.attachInterrupt(PWM_s);  
 }
 
 void loop() {
   ENA_S_1 = ENA_H_1 =  ENA_H_2 = ENA_M_1 = ENA_M_2 = 0;
-  CheckState(ENA_H_1, ENA_H_2, ENA_M_1, ENA_M_2, ENA_S_1, time);
+  CheckState(ENA_H_1, ENA_H_2, ENA_M_1, ENA_M_2, ENA_S_1, time_for_motor);
   if (ENA_S_1)
     if (micros() - micros_s > interval_s) {
       State_S_1 = !State_S_1;
@@ -119,15 +119,15 @@ void loop() {
     }
 
 
-  time[0] = clock.getHour(h12, apm);
-  time[1] = clock.getMinute();
-  time[2] = clock.getSecond();
+  time_for_motor[0] = clock_for_motor.getHour(h12, apm);
+  time_for_motor[1] = clock_for_motor.getMinute();
+  time_for_motor[2] = clock_for_motor.getSecond();
   Readangle(angle);
-  printTime(time);
+  printTime(time_for_motor);
 }
 
 
-void ClockRun(void){
+void clock_for_motorRun(void){
   if (ENA_S_1)
     if (micros() - micros_s > interval_s) {
       State_S_1 = !State_S_1;
@@ -182,19 +182,19 @@ void Readangle(int angle[]){
     tcaselect(i);
     Wire.beginTransmission(ENCADDR);
     if (!Wire.endTransmission()){
-      angle[i] = convertRawAngleToDegrees(encoder[i].getRawAngle());
+      angle[i] = encoder[i].readAngle();
           Serial.print("Angle "); Serial.print(i);Serial.print(" = ");Serial.println(angle[i]);
     }
   }               
 }
 
-void convert_angle(int startangle[],int time[]){
-  startangle[0] = time[0] / 10 * 36;
-  startangle[1] = time[0] % 10 * 36;
-  startangle[2] = time[1] / 10 * 36;
-  startangle[3] = time[1] % 10 * 36;
-  startangle[4] = time[2] / 10 * 36;
-  startangle[5] = time[2] % 10 * 36;  
+void convert_angle(int startangle[],int time_for_motor[]){
+  startangle[0] = time_for_motor[0] / 10 * 36;
+  startangle[1] = time_for_motor[0] % 10 * 36;
+  startangle[2] = time_for_motor[1] / 10 * 36;
+  startangle[3] = time_for_motor[1] % 10 * 36;
+  startangle[4] = time_for_motor[2] / 10 * 36;
+  startangle[5] = time_for_motor[2] % 10 * 36;  
 }
 
 bool CompareAngle(int startangle[], int angle[]){
@@ -205,7 +205,7 @@ bool CompareAngle(int startangle[], int angle[]){
   return equal;
 }
 
-void Time_Init(int time[])
+void Time_Init(int time_for_motor[])
 {
   byte index = 0;
   char endMarker = '\n';
@@ -222,29 +222,29 @@ void Time_Init(int time[])
       break;
   }
 
-  time[0] = (Serial_Res[0] - '0') * 10 + (Serial_Res[1] - '0');
-  time[1] = (Serial_Res[2] - '0') * 10 + (Serial_Res[3] - '0');
-  time[2] = (Serial_Res[4] - '0') * 10 + (Serial_Res[5] - '0');
-  clock.setSecond(time[2]);//Set the second
-  clock.setMinute(time[1]);//Set the minute
-  clock.setHour(time[0]);  //Set the hour
+  time_for_motor[0] = (Serial_Res[0] - '0') * 10 + (Serial_Res[1] - '0');
+  time_for_motor[1] = (Serial_Res[2] - '0') * 10 + (Serial_Res[3] - '0');
+  time_for_motor[2] = (Serial_Res[4] - '0') * 10 + (Serial_Res[5] - '0');
+  clock_for_motor.setSecond(time_for_motor[2]);//Set the second
+  clock_for_motor.setMinute(time_for_motor[1]);//Set the minute
+  clock_for_motor.setHour(time_for_motor[0]);  //Set the hour
   Serial.print("Time Set::");
-  printTime(time);
+  printTime(time_for_motor);
 
   micros_s = micros();
   micros_m_2 = micros();
   micros_m_1 = micros();
   micros_h_2 = micros();
   micros_h_1 = micros();
-  //CheckClock(time);
+  //Checkclock_for_motor(time);
 }
 
 
 
 //closed loop control
-void CheckClock(int time[]){
+void Checkclock_for_motor(int time_for_motor[]){
   int startangle[6];
-  convert_angle(startangle, time);
+  convert_angle(startangle, time_for_motor);
   Readangle(angle);
   ENA_H_1 = ENA_H_2 = ENA_M_1 = ENA_M_2 = ENA_S_1 = 1;
   Timer1.attachInterrupt(PWM_s);
@@ -255,16 +255,16 @@ void CheckClock(int time[]){
      if((abs(startangle[3] - angle[3])) < 1) ENA_M_2 = 0;
      if((abs(startangle[4] - angle[4])) < 1) ENA_S_1 = 0;
      if((abs(startangle[5] - angle[5])) < 1) Timer1.detachInterrupt();
-     ClockRun();
+     clock_for_motorRun();
   }
 }
-void CheckState(bool& ENAH1, bool& ENAH2, bool& ENAM1, bool& ENAM2, bool& ENAS1, int time[])
+void CheckState(bool& ENAH1, bool& ENAH2, bool& ENAM1, bool& ENAM2, bool& ENAS1, int time_for_motor[])
 {
-  ENAS1 = (time[2] % 10 == 9) ? true : false;
-  ENAM2 = (time[2] >= 58) ? true : false;
-  ENAM1 = ((time[1] % 10 == 9) && (time[2] >= 58)) ? true : false;
-  ENAH2 = ((time[1] == 59) && (time[2] >= 55) ) ? true : false;
-  ENAH1 = ((time[0] % 10 == 9) && (time[2] >= 55)) ? true : false;
+  ENAS1 = (time_for_motor[2] % 10 == 9) ? true : false;
+  ENAM2 = (time_for_motor[2] >= 58) ? true : false;
+  ENAM1 = ((time_for_motor[1] % 10 == 9) && (time_for_motor[2] >= 58)) ? true : false;
+  ENAH2 = ((time_for_motor[1] == 59) && (time_for_motor[2] >= 55) ) ? true : false;
+  ENAH1 = ((time_for_motor[0] % 10 == 9) && (time_for_motor[2] >= 55)) ? true : false;
 }
 
 
@@ -289,11 +289,11 @@ float convertRawAngleToDegrees(word newAngle)
   return ang;
 }
 
-void printTime(int time[]){
-  Serial.print(time[0], DEC);
+void printTime(int time_for_motor[]){
+  Serial.print(time_for_motor[0], DEC);
   Serial.print(':');
-  Serial.print(time[1], DEC);
+  Serial.print(time_for_motor[1], DEC);
   Serial.print(':');
-  Serial.print(time[2], DEC);
+  Serial.print(time_for_motor[2], DEC);
   Serial.print("\n");
 }
