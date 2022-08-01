@@ -1,4 +1,4 @@
-  #define FASTLED_INTERNAL
+#define FASTLED_INTERNAL
 #define NUM_LEDS 3
 #define LED_TYPE WS2812
 #define COLOR_ORDER GRB
@@ -183,7 +183,7 @@ void Readangle(int angle[]){
     Wire.beginTransmission(ENCADDR);
     if (!Wire.endTransmission()){
       angle[i] = encoder[i].readAngle();
-          Serial.print("Angle "); Serial.print(i);Serial.print(" = ");Serial.println(angle[i]);
+          //Serial.print("Angle "); Serial.print(i);Serial.print(" = ");Serial.println(angle[i]);
     }
   }               
 }
