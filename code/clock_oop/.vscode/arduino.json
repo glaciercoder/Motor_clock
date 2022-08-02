@@ -1,0 +1,6 @@
+{
+    "sketch": "clock_oop.ino",
+    "port": "/dev/tty.usbserial-14420",
+    "board": "arduino:avr:uno",
+    "programmer": "arduino:avrispmkii"
+}
