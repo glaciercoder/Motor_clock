@@ -290,7 +290,7 @@ M3x10 200个
 
 - 302的门开了，nlc与wbc组装了一个完整的数字，调试顺利，而且噪声比预想的小很多。TMC2209的扭矩还是足够的。
   
-  ![demo](https://youtube.com/shorts/_J2np6-Vw0g?feature=share)
+  (https://youtube.com/shorts/_J2np6-Vw0g?feature=share)
   
  - 依然存在的问题&解决方案
 
